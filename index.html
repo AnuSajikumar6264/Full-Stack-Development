@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personality Development Tracker</title>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <script src="js/bootstrap.js"></script>
+    <!-- Fixed Header -->
+    <div class="fixed-top bg-primary text-white p-3 text-center">
+      <h2>Personality Development Tracker</h2>
+    </div>
+
+    <!-- Scrollable Content -->
+    <div class="container-fluid mt-5 mb-5 pt-5 pb-5 content-section">
+      <div class="row">
+        <div class="col-md-12 mb-4">
+          <h3>Self Reflection</h3>
+          <p>
+            Daily reflection is a way to gain self-awareness. Take a few moments
+            each day to think about what you’ve learned and what you want to
+            achieve in the future.
+          </p>
+          <p>
+            <strong>Journal Entry:</strong> What did you learn today? What could
+            you have done differently?
+          </p>
+        </div>
+        <div class="col-md-12 mb-4">
+          <h3>Goal Setting</h3>
+          <p>
+            Establish specific, measurable, and time-bound goals to work on.
+            Check off each goal as you achieve it to see your progress over
+            time.
+          </p>
+          <ul>
+            <li>
+              <strong>Short-term Goals:</strong> Finish reading a book on
+              leadership.
+            </li>
+            <li>
+              <strong>Long-term Goals:</strong> Improve communication skills by
+              practicing public speaking weekly.
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-12 mb-4">
+          <h3>Daily Habits</h3>
+          <p>
+            Consistent habits lead to consistent results. Keep a list of your
+            daily habits and tick them off as you complete each task.
+          </p>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Habit</th>
+                <th>Daily Completion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Meditation for 10 minutes</td>
+                <td><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td>Read for 30 minutes</td>
+                <td><input type="checkbox" /></td>
+              </tr>
+              <tr>
+                <td>Exercise for 30 minutes</td>
+                <td><input type="checkbox" /></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-12 mb-4">
+          <h3>Strengths & Weaknesses</h3>
+          <p>
+            Understanding your strengths and weaknesses can help in making
+            informed decisions and in personal development.
+          </p>
+          <div class="row">
+            <div class="col-md-6">
+              <h4>Strengths</h4>
+              <ul>
+                <li>Good listener</li>
+                <li>Self-motivated</li>
+                <li>Quick learner</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h4>Weaknesses</h4>
+              <ul>
+                <li>Procrastination</li>
+                <li>Difficulty in saying "No"</li>
+                <li>Overthinking</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 mb-4">
+          <h3>Personal Achievements</h3>
+          <p>
+            Record your achievements to keep track of your progress and to
+            motivate yourself towards greater goals.
+          </p>
+          <ol id="achievement-list">
+            <li>Completed a certified leadership course.</li>
+            <li>Successfully organized a team-building workshop.</li>
+            <li>Delivered a speech in front of 100 people.</li>
+          </ol>
+          <!-- Add Bootstrap Button with Badge -->
+          <button
+            class="btn btn-outline-primary position-relative"
+            id="add-achievement-button"
+          >
+            Add New Achievement
+            <span
+              class="badge bg-danger position-absolute top-10 start-100 translate-middle"
+              >0</span
+            >
+          </button>
+        </div>
+        <button
+          data-bs-toggle="collapse"
+          data-bs-target="#achievementCollapse"
+          class="btn btn-primary"
+        >
+          Show Details
+        </button>
+        <div class="collapse" id="achievementCollapse">
+          Cleaning your Room and keeping my book back on the shelves
+        </div>
+        <div class="col-md-12 mb-4">
+          <h3>Learning Resources</h3>
+          <p>
+            Access and review resources that can help you grow personally and
+            professionally.
+          </p>
+          <ul>
+            <li>
+              Books: <em>"How to Win Friends and Influence People"</em> by Dale
+              Carnegie.
+            </li>
+            <li>Podcasts: <em>"The Tim Ferriss Show"</em>.</li>
+            <li>
+              Courses: <em>Emotional Intelligence Training</em> on Coursera.
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-12 mb-4">
+          <h3>Feedback & Improvement</h3>
+          <p>
+            Get feedback from peers and mentors to find out areas where you can
+            improve. Remember that constructive criticism helps in personal
+            growth.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fixed Footer -->
+    <div class="fixed-bottom bg-dark text-white p-2 text-center">
+      <small
+        >&copy; 2024 Personality Development Tracker. All Rights
+        Reserved.</small
+      >
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script>
+      // JavaScript to add a new achievement and update the badge count
+      let achievementCount = 3; // Initial count based on the existing achievements
+
+      document
+        .getElementById("add-achievement-button")
+        .addEventListener("click", function () {
+          const achievementList = document.getElementById("achievement-list");
+          const newAchievement = prompt("Enter your new achievement:");
+          if (newAchievement) {
+            const listItem = document.createElement("li");
+            listItem.textContent = newAchievement;
+            achievementList.appendChild(listItem);
+            achievementCount++;
+            updateBadge();
+          }
+        });
+
+      function updateBadge() {
+        const badge = document.querySelector(".badge");
+        badge.textContent = achievementCount;
+      }
+    </script>
+  </body>
+</html>

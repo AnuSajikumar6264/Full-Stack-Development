@@ -1,0 +1,21 @@
+/* Custom styling for scrollable content */
+.content-section {
+    max-height: calc(100vh - 150px); /* Adjust height considering fixed header & footer */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Ensuring padding at the top and bottom to avoid overlap with fixed header and footer */
+.content-section h3 {
+    padding-top: 20px;
+}
+
+/* Styling for header and footer */
+.fixed-top {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.fixed-bottom {
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom button styling is no longer needed since Bootstrap handles it */
